@@ -1,10 +1,8 @@
-module "components" {
-  for_each          = var.components
+module "vpc" {
+  for_each          = var.vpc
 
-  source            = "git::https://github.com/vsoujan/terraform-module.git"
-  security_groups   = var.security_groups
-  zone_id           = var.zone_id
-  name              = each.value["name"]
-  instance_type     = each.value["instance_type"]
-  ami               = var.ami
+  source            = "git::https://github.com/vsoujan/terraform-module-vpc.git"
+
+  cidr = each.value["cidr"]
+
 }
