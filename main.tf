@@ -3,7 +3,8 @@ module "vpc" {
 
   source            = "git::https://github.com/vsoujan/terraform-module-vpc.git"
 
-  cidr = each.value["cidr"]
+  cidr              = each.value["cidr"]
+  subnets           = each.value["subnets"]
 
 }
 
