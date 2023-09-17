@@ -41,6 +41,6 @@ module "docdb" {
   engine_version          = each.value["engine_version"]
   instance_count          = each.value["instance_count"]
   instance_class          = each.value["instance_class"]
-  instance_family         = each.value["instance_family"]
+  instance_family         = each.value["engine_family"]
 }
 
