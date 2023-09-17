@@ -22,6 +22,7 @@ default_vpc_id              = "vpc-09ae990365fe82e14"
 default_vpc_cidr            = "172.31.0.0/16"
 default_vpc_route_table_id  = "rtb-0accf14c7303f0636"
 env                         = "dev"
+ami                         = "ami-03265a0778a880afb"
 
 tags = {
   company_name  = "ABC Tech"
@@ -85,5 +86,12 @@ elasticache = {
     node_type        = "cache.t3.micro"
     num_cache_nodes  = 1
     engine_version   = "6.2"
+  }
+}
+
+rabbitmq = {
+  main = {
+    ssh_ingress_cidr = ["172.31.88.125/32"]
+    instance_type = "t3.small"
   }
 }
