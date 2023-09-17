@@ -27,9 +27,9 @@ module "alb" {
 }
 
 module "docdb" {
-  source                  = "git::https://github.com/vsoujan/tf-module-docdb.git"
-  tags                    = var.tags
-  env                     = var.env
+  source = "git::https://github.com/raghudevopsb74/tf-module-docdb.git"
+  tags   = var.tags
+  env    = var.env
 
   for_each                = var.docdb
   subnet_ids              = local.db_subnets
@@ -39,5 +39,6 @@ module "docdb" {
   vpc_id                  = local.vpc_id
   sg_ingress_cidr         = local.app_subnets_cidr
   engine_version          = each.value["engine_version"]
+  engine_family           = each.value["engine_family"]
 }
 
