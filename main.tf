@@ -12,10 +12,6 @@ module "vpc" {
 
 }
 
-output "vpc" {
-  value = module.vpc
-}
-
 module "alb" {
   source            = "git::https://github.com/vsoujan/tf-module-alb.git"
   for_each          = var.alb
@@ -27,6 +23,16 @@ module "alb" {
   tags              = var.tags
   env               = var.env
   sg_port           = each.value["sg_port"]
+
+}
+
+module "docdb" {
+  source            = "git::https://github.com/vsoujan/tf-module-docdb.git"
+  tags              = var.tags
+  env               = var.env
+
+  for_each          = var.docdb
+  subnet_ids        = local.db_subnets
 
 }
 
