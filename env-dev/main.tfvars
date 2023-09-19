@@ -23,6 +23,8 @@ default_vpc_cidr            = "172.31.0.0/16"
 default_vpc_route_table_id  = "rtb-0accf14c7303f0636"
 env                         = "dev"
 ami                         = "ami-03265a0778a880afb"
+zone_id                     = "Z058570517M4881XN7FK9"
+ssh_ingress_cidr            = ["172.31.88.125/32"]
 
 tags = {
   company_name  = "ABC Tech"
@@ -91,7 +93,51 @@ elasticache = {
 
 rabbitmq = {
   main = {
-    ssh_ingress_cidr = ["172.31.88.125/32"]
     instance_type = "t3.small"
+  }
+}
+
+apps = {
+  frontend = {
+    instance_type     = "t3.micro"
+    port              = 80
+    desired_capacity  = 1
+    max_size          = 3
+    min_size          = 1
+  }
+  catalogue = {
+    instance_type     = "t3.micro"
+    port              = 8080
+    desired_capacity  = 1
+    max_size          = 3
+    min_size          = 1
+  }
+  user = {
+    instance_type     = "t3.micro"
+    port              = 8080
+    desired_capacity  = 1
+    max_size          = 3
+    min_size          = 1
+  }
+  cart = {
+    instance_type     = "t3.micro"
+    port              = 8080
+    desired_capacity  = 1
+    max_size          = 3
+    min_size          = 1
+  }
+  payment = {
+    instance_type     = "t3.micro"
+    port              = 8080
+    desired_capacity  = 1
+    max_size          = 3
+    min_size          = 1
+  }
+  shipping = {
+    instance_type     = "t3.micro"
+    port              = 8080
+    desired_capacity  = 1
+    max_size          = 3
+    min_size          = 1
   }
 }
