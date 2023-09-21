@@ -1,5 +1,5 @@
 module "vpc" {
-  source            = "git::https://github.com/vsoujan/terraform-module-vpc.git"
+  source            = "git::https://github.com/vsoujan/tf-module-vpc.git"
   for_each          = var.vpc
 
   cidr              = each.value["cidr"]
