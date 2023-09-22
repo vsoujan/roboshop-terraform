@@ -112,6 +112,7 @@ module "app" {
   ssh_ingress_cidr        = var.ssh_ingress_cidr
   ami                     = var.ami
   default_vpc_id          = var.default_vpc_id
+  az                      = var.az
 
   for_each         = var.apps
   component        = each.key
