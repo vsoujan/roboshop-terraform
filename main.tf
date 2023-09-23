@@ -103,7 +103,7 @@ module "rabbitmq" {
 }
 
 module "app" {
-  #depends_on = [module.docdb, module.alb, module.elasticache, module.rabbitmq, module.rds]
+  depends_on = [module.docdb, module.alb, module.elasticache, module.rabbitmq, module.rds]
   source = "git::https://github.com/vsoujan/tf-module-app.git"
 
   tags                    = var.tags
