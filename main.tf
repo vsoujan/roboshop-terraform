@@ -113,6 +113,7 @@ module "app" {
   ami                     = var.ami
   default_vpc_id          = var.default_vpc_id
   az                      = var.az
+  monotring_ingress_cidr  = var.monotring_ingress_cidr
 
   for_each         = var.apps
   component        = each.key

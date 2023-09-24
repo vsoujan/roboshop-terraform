@@ -26,6 +26,7 @@ ami                         = "ami-03265a0778a880afb"
 zone_id                     = "Z058570517M4881XN7FK9"
 ssh_ingress_cidr            = ["172.31.88.125/32"]
 az                          = ["us-east-1a", "us-east-1b"]
+monotring_ingress_cidr      = ["172.31.17.61/32"]
 
 tags = {
   company_name  = "ABC Tech"
